@@ -26,4 +26,31 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $guarded=array('id');
+
+        public static $rules=array(
+
+            'name'=>'required',
+            'avatar'=>'required',
+            'email'=>'required',
+            'password'=>'required'
+            
+        );
+
+    public function user(){
+
+        return $this->hasOne('Lesson');
+    }
+
+    public function followed(){
+
+        return $this->hasMany('Follow');
+    }
+
+    public function follower(){
+
+        return $this->hasMany('Follow');
+    }
+
 }
