@@ -13,5 +13,6 @@
 
 
 
-Route::get('login','LoginController@login');
+Route::get('/login/login','LoginController@login');
+Route::post('/login/post','LoginController@post');
 ?>
