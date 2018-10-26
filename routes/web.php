@@ -15,33 +15,14 @@ Route::get('hello', function () {
     return view('welcome');
 });*/
 
-$html = <<< EOF
-<html>
-<head>
-<title>Login</title>
-<style>
-body{width:400px; margin-left:auto; margin-right:auto; background-color:skyblue;}
-h1{font-weight:bold; font-size:20px; text-align:center;}
-.login{background-color:white; height:500px; width:100%;}
 
-</style>
-</head>
-<body>
-	<h1>Framgia E-learning System</h1>
-	<div class="login">
-	<span>Username</span>
-	<input type="text" name="name"><br>
-	<span>Password</span>
-	<input type="password" name="password">
-	</div>
-</body>
-</html>
-EOF;
+Route::get('dashboard','lessonAnsweringController@dashboard');
+Route::get('categoryOption','lessonAnsweringController@categoryOption');
+Route::get('categoryOption','lessonAnsweringController@categoryDisplay');
 
-Route::get('/',function() use ($html){
-	return $html;
-
-});
+Route::get('answerQuestion','lessonAnsweringController@answerPage');
+Route::post('answerQuestion','lessonAnsweringController@lessonRecord');
+Route::get('answerQuestion','lessonAnsweringController@lessonRecord');
 
 
 ?>
